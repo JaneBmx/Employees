@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use App\Entity\employees\Employee;
 
 class Project
 {
@@ -20,10 +21,11 @@ class Project
         $this->employees = $employees;
     }
 
-    public function getTotalCost(): float{
+    public function getTotalCost(): float
+    {
         $total = 0;
-        foreach ($this->employees as $employee){
-            $total+=$employee->getSalary();
+        foreach ($this->employees as $employee) {
+            $total += $employee->getSalary();
         }
         return $total;
     }

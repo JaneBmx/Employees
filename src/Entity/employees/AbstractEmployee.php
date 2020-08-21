@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Entity;
+namespace App\Entity\employees;
 
 
 abstract class AbstractEmployee
@@ -15,8 +15,8 @@ abstract class AbstractEmployee
      * AbstractEmployee constructor.
      * @param string $firstName
      * @param string $lastName
-     * @param string $middleName
      * @param float $salary
+     * @param string $middleName
      * @param float $rate
      */
     public function __construct(string $firstName, string $lastName, float $salary, string $middleName, float $rate = 1)
@@ -90,5 +90,13 @@ abstract class AbstractEmployee
     public function setSalary($salary, $rate = 1): void
     {
         $this->salary = $salary * $rate;
+    }
+
+    public function __toString(): string
+    {
+        return $this->firstName . ', '
+        . (strlen($this->getMiddleName()) == 0 ? '' : $this->getMiddleName() . ', ')
+            . $this->getLastName() . '; '
+            . 'Salary:' . $this->getSalary();
     }
 }
