@@ -21,6 +21,5 @@ class Designer extends AbstractEmployee implements Employee
     public function __toString(): string
     {
         return 'Designer. ' . parent::__toString();
-        // return 'Designer. ' . $this;
     }
 }
